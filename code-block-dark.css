@@ -1,0 +1,424 @@
+/* コードブロックの背景を黒にし、シンタックスハイライトを有効化 */
+/* テーマのスタイルを確実に上書きするため、より強力なセレクタを使用 */
+
+/* HyperMDコードブロック - 実際に使用されているクラスを優先 */
+.HyperMD-codeblock,
+.HyperMD-codeblock-bg,
+.cm-line.HyperMD-codeblock,
+.cm-line.HyperMD-codeblock-bg {
+  background-color: #27274d !important;
+  color: #d4d4d4 !important;
+}
+
+/* コードブロック内のカーソル（キャレット）を白に - 最強のセレクタ */
+/* caret-colorプロパティを使用（Obsidianで推奨される方法） */
+.HyperMD-codeblock,
+.HyperMD-codeblock-bg,
+.cm-line.HyperMD-codeblock,
+.cm-line.HyperMD-codeblock-bg,
+.cm-editor .HyperMD-codeblock,
+.cm-editor .HyperMD-codeblock-bg,
+.cm-editor .cm-line.HyperMD-codeblock,
+.cm-editor .cm-line.HyperMD-codeblock-bg,
+.markdown-source-view .HyperMD-codeblock,
+.markdown-source-view .HyperMD-codeblock-bg,
+.markdown-source-view .cm-line.HyperMD-codeblock,
+.markdown-source-view .cm-line.HyperMD-codeblock-bg,
+/* コードブロック内のすべての要素にcaret-colorを適用 */
+.cm-editor .HyperMD-codeblock *,
+.cm-editor .HyperMD-codeblock-bg *,
+.cm-editor .cm-line.HyperMD-codeblock *,
+.cm-editor .cm-line.HyperMD-codeblock-bg *,
+.markdown-source-view .HyperMD-codeblock *,
+.markdown-source-view .HyperMD-codeblock-bg *,
+.markdown-source-view .cm-line.HyperMD-codeblock *,
+.markdown-source-view .cm-line.HyperMD-codeblock-bg * {
+  caret-color: #ffffff !important; /* カーソルを白に */
+}
+
+/* CodeMirrorではカーソルは.cm-content内に配置されるため、より包括的なセレクタを使用 */
+.cm-content .HyperMD-codeblock ~ .cm-cursor,
+.cm-content .HyperMD-codeblock-bg ~ .cm-cursor,
+.cm-content .cm-line.HyperMD-codeblock ~ .cm-cursor,
+.cm-content .cm-line.HyperMD-codeblock-bg ~ .cm-cursor,
+.cm-content:has(.HyperMD-codeblock) .cm-cursor,
+.cm-content:has(.HyperMD-codeblock-bg) .cm-cursor,
+.cm-content:has(.cm-line.HyperMD-codeblock) .cm-cursor,
+.cm-content:has(.cm-line.HyperMD-codeblock-bg) .cm-cursor,
+.HyperMD-codeblock ~ .cm-cursor,
+.HyperMD-codeblock-bg ~ .cm-cursor,
+.cm-line.HyperMD-codeblock ~ .cm-cursor,
+.cm-line.HyperMD-codeblock-bg ~ .cm-cursor,
+.HyperMD-codeblock .cm-cursor,
+.HyperMD-codeblock-bg .cm-cursor,
+.cm-line.HyperMD-codeblock .cm-cursor,
+.cm-line.HyperMD-codeblock-bg .cm-cursor,
+.HyperMD-codeblock .cm-cursor-primary,
+.HyperMD-codeblock-bg .cm-cursor-primary,
+.cm-line.HyperMD-codeblock .cm-cursor-primary,
+.cm-line.HyperMD-codeblock-bg .cm-cursor-primary,
+.HyperMD-codeblock .cm-cursor-secondary,
+.HyperMD-codeblock-bg .cm-cursor-secondary,
+.cm-line.HyperMD-codeblock .cm-cursor-secondary,
+.cm-line.HyperMD-codeblock-bg .cm-cursor-secondary,
+.cm-editor .HyperMD-codeblock .cm-cursor,
+.cm-editor .HyperMD-codeblock-bg .cm-cursor,
+.cm-editor .cm-line.HyperMD-codeblock .cm-cursor,
+.cm-editor .cm-line.HyperMD-codeblock-bg .cm-cursor,
+.markdown-source-view .HyperMD-codeblock .cm-cursor,
+.markdown-source-view .HyperMD-codeblock-bg .cm-cursor,
+.markdown-source-view .cm-line.HyperMD-codeblock .cm-cursor,
+.markdown-source-view .cm-line.HyperMD-codeblock-bg .cm-cursor {
+  border-left-color: #ffffff !important; /* カーソルを白に */
+  border-color: #ffffff !important; /* カーソルを白に（全方向） */
+  background-color: #ffffff !important; /* ブロックカーソルの場合 */
+  color: #ffffff !important; /* テキストカーソルの場合 */
+}
+
+/* コードブロック内でフォーカスされている場合のカーソル */
+.HyperMD-codeblock.cm-focused .cm-cursor,
+.HyperMD-codeblock-bg.cm-focused .cm-cursor,
+.cm-line.HyperMD-codeblock.cm-focused .cm-cursor,
+.cm-line.HyperMD-codeblock-bg.cm-focused .cm-cursor,
+.cm-focused .HyperMD-codeblock .cm-cursor,
+.cm-focused .HyperMD-codeblock-bg .cm-cursor,
+.cm-focused .cm-line.HyperMD-codeblock .cm-cursor,
+.cm-focused .cm-line.HyperMD-codeblock-bg .cm-cursor,
+.cm-editor.cm-focused .HyperMD-codeblock .cm-cursor,
+.cm-editor.cm-focused .HyperMD-codeblock-bg .cm-cursor,
+.cm-editor.cm-focused .cm-line.HyperMD-codeblock .cm-cursor,
+.cm-editor.cm-focused .cm-line.HyperMD-codeblock-bg .cm-cursor {
+  border-left-color: #ffffff !important; /* カーソルを白に */
+  border-color: #ffffff !important; /* カーソルを白に（全方向） */
+  background-color: #ffffff !important; /* ブロックカーソルの場合 */
+  color: #ffffff !important; /* テキストカーソルの場合 */
+}
+
+/* より広範囲にカバー - すべてのコードブロック内のカーソル */
+.cm-editor .HyperMD-codeblock .cm-cursor,
+.cm-editor .HyperMD-codeblock-bg .cm-cursor,
+.cm-editor .cm-line.HyperMD-codeblock .cm-cursor,
+.cm-editor .cm-line.HyperMD-codeblock-bg .cm-cursor,
+body .HyperMD-codeblock .cm-cursor,
+body .HyperMD-codeblock-bg .cm-cursor,
+body .cm-line.HyperMD-codeblock .cm-cursor,
+body .cm-line.HyperMD-codeblock-bg .cm-cursor,
+/* CodeMirrorのコンテンツ内のカーソル */
+.cm-content:has(.HyperMD-codeblock) .cm-cursor,
+.cm-content:has(.HyperMD-codeblock-bg) .cm-cursor,
+.cm-content:has(.cm-line.HyperMD-codeblock) .cm-cursor,
+.cm-content:has(.cm-line.HyperMD-codeblock-bg) .cm-cursor {
+  border-left-color: #ffffff !important;
+  border-color: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* コードブロックがアクティブな場合のカーソル（.cm-activeクラスが付いている場合） */
+.cm-active.HyperMD-codeblock ~ .cm-cursor,
+.cm-active.HyperMD-codeblock-bg ~ .cm-cursor,
+.cm-active.cm-line.HyperMD-codeblock ~ .cm-cursor,
+.cm-active.cm-line.HyperMD-codeblock-bg ~ .cm-cursor,
+.cm-content:has(.cm-active.HyperMD-codeblock) .cm-cursor,
+.cm-content:has(.cm-active.HyperMD-codeblock-bg) .cm-cursor,
+.cm-content:has(.cm-active.cm-line.HyperMD-codeblock) .cm-cursor,
+.cm-content:has(.cm-active.cm-line.HyperMD-codeblock-bg) .cm-cursor {
+  border-left-color: #ffffff !important;
+  border-color: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* HyperMDコードブロック内のコード */
+.HyperMD-codeblock code,
+.HyperMD-codeblock-bg code,
+.cm-line.HyperMD-codeblock code {
+  background-color: transparent !important;
+  color: #7371e4 !important;
+}
+
+/* インラインコード - すべてのパターンを網羅 */
+.markdown-preview-view code:not(pre code),
+.markdown-source-view code:not(pre code),
+.cm-s-obsidian code:not(pre code),
+.cm-editor code:not(pre code),
+.markdown-rendered code:not(pre code),
+.markdown-source-view.mod-cm6 .cm-line code:not(pre code) {
+  background-color: #27274d !important;
+  color: #d4d4d4 !important;
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+}
+
+/* コードブロック - すべてのパターンを網羅 */
+.markdown-preview-view pre,
+.markdown-source-view pre,
+.markdown-preview-view pre code,
+.markdown-source-view pre code,
+.cm-s-obsidian pre,
+.cm-s-obsidian pre code,
+.cm-editor pre,
+.cm-editor pre code,
+.markdown-rendered pre,
+.markdown-rendered pre code,
+.markdown-source-view.mod-cm6 pre,
+.markdown-source-view.mod-cm6 pre code,
+pre[class*="language-"],
+pre code[class*="language-"],
+code[class*="language-"] {
+  background-color: #27274d !important;
+  color: #d4d4d4 !important;
+  border-radius: 6px !important;
+  padding: 16px !important;
+  overflow-x: auto !important;
+}
+
+/* コードブロック内のコード */
+.markdown-preview-view pre code,
+.markdown-source-view pre code,
+.cm-s-obsidian pre code,
+.cm-editor pre code,
+.markdown-rendered pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+}
+
+/* すべてのpre要素とcode要素を対象（最強のフォールバック） */
+body pre,
+body pre code,
+html body pre,
+html body pre code {
+  background-color: #27274d
+  !important;
+  color: #d4d4d4 !important;
+}
+
+/* シンタックスハイライト用の色設定 */
+.markdown-preview-view pre code,
+.markdown-source-view pre code {
+  font-family: 'M PLUS 1 Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+}
+
+/* CodeMirror 6のシンタックスハイライトクラス（HyperMDで使用）- 見やすく色分け */
+.cm-keyword,
+.cm-line .cm-keyword,
+.HyperMD-codeblock .cm-keyword,
+.HyperMD-codeblock-bg .cm-keyword {
+  color: #30bede !important; /* キーワード（淡い紫）- function, const, let, varなど */
+}
+
+/* 引数名（括弧内のcm-def） - ピンクで区別 */
+.cm-def,
+.cm-line .cm-def,
+.HyperMD-codeblock .cm-def,
+.HyperMD-codeblock-bg .cm-def {
+  color: #f076ee !important; /* 引数名（ピンク） - デフォルト */
+}
+
+/* 関数名の定義（cm-keywordの直後のcm-def） - 黄色で区別 */
+.cm-keyword + .cm-def,
+.cm-keyword + .cm-hmd-codeblock + .cm-def,
+.cm-line .cm-keyword + .cm-def,
+.HyperMD-codeblock .cm-keyword + .cm-def,
+.HyperMD-codeblock .cm-keyword + .cm-hmd-codeblock + .cm-def,
+.HyperMD-codeblock-bg .cm-keyword + .cm-def,
+.cm-variable.cm-def,
+.cm-line .cm-variable.cm-def,
+.HyperMD-codeblock .cm-variable.cm-def,
+.HyperMD-codeblock-bg .cm-variable.cm-def {
+  color: #f5ba4c !important; /* 関数名（黄色） */
+}
+
+/* 変数名（.cm-variableで、.cm-defではないもの） - 水色で区別 */
+.cm-variable:not(.cm-def):not(.cm-function),
+.cm-line .cm-variable:not(.cm-def):not(.cm-function),
+.HyperMD-codeblock .cm-variable:not(.cm-def):not(.cm-function),
+.HyperMD-codeblock-bg .cm-variable:not(.cm-def):not(.cm-function),
+.cm-parameter,
+.cm-line .cm-parameter,
+.HyperMD-codeblock .cm-parameter,
+.HyperMD-codeblock-bg .cm-parameter {
+  color: #9cdcfe !important; /* 変数名（水色） */
+}
+
+.cm-variable-2,
+.cm-line .cm-variable-2,
+.HyperMD-codeblock .cm-variable-2,
+.HyperMD-codeblock-bg .cm-variable-2 {
+  color: #30bede !important; /* プロパティ（ライトブルー） */
+}
+
+/* 組み込み関数やメソッド呼び出し - オレンジイエローで区別 */
+.cm-function,
+.cm-line .cm-function,
+.HyperMD-codeblock .cm-function,
+.HyperMD-codeblock-bg .cm-function {
+  color: #ffd900 !important; /* 組み込み関数（オレンジイエロー） */
+}
+
+.cm-number,
+.cm-line .cm-number,
+.HyperMD-codeblock .cm-number,
+.HyperMD-codeblock-bg .cm-number {
+  color: #b5cea8 !important; /* VSCode: 数値（薄緑） */
+}
+
+.cm-string,
+.cm-line .cm-string,
+.HyperMD-codeblock .cm-string,
+.HyperMD-codeblock-bg .cm-string {
+  color: #ce9178 !important; /* VSCode: 文字列（オレンジ） */
+}
+
+.cm-comment,
+.cm-line .cm-comment,
+.HyperMD-codeblock .cm-comment,
+.HyperMD-codeblock-bg .cm-comment {
+  color: #6a9955 !important; /* VSCode: コメント（緑） */
+}
+
+.cm-operator,
+.cm-line .cm-operator,
+.HyperMD-codeblock .cm-operator,
+.HyperMD-codeblock-bg .cm-operator {
+  color: #d4d4d4 !important; /* VSCode: 演算子（白） */
+}
+
+.cm-property,
+.cm-line .cm-property,
+.HyperMD-codeblock .cm-property,
+.HyperMD-codeblock-bg .cm-property {
+  color: #d28eff !important; /* プロパティ（ライトブルー） */
+}
+
+.cm-type,
+.cm-line .cm-type,
+.HyperMD-codeblock .cm-type,
+.HyperMD-codeblock-bg .cm-type {
+  color: #4ec9b0 !important; /* 型名（シアン） */
+}
+
+.cm-builtin,
+.cm-line .cm-builtin,
+.HyperMD-codeblock .cm-builtin,
+.HyperMD-codeblock-bg .cm-builtin {
+  color: #ffd700 !important; /* 組み込み関数（オレンジイエロー） */
+}
+
+.cm-punctuation,
+.cm-line .cm-punctuation,
+.HyperMD-codeblock .cm-punctuation,
+.HyperMD-codeblock-bg .cm-punctuation {
+  color: #d4d4d4 !important; /* VSCode: 句読点（白） */
+}
+
+.cm-class,
+.cm-line .cm-class,
+.HyperMD-codeblock .cm-class,
+.HyperMD-codeblock-bg .cm-class {
+  color: #4ec9b0 !important; /* VSCode: クラス名（シアン） */
+}
+
+.cm-namespace,
+.cm-line .cm-namespace,
+.HyperMD-codeblock .cm-namespace,
+.HyperMD-codeblock-bg .cm-namespace {
+  color: #4ec9b0 !important; /* VSCode: 名前空間（シアン） */
+}
+
+/* 特定の言語のハイライト（Prism.js用 - プレビューモードで使用される可能性）- VSCode Dark+テーマの色 */
+.markdown-preview-view .token.comment,
+.markdown-source-view .token.comment,
+.markdown-preview-view .token.prolog,
+.markdown-source-view .token.prolog,
+.markdown-preview-view .token.doctype,
+.markdown-source-view .token.doctype,
+.markdown-preview-view .token.cdata,
+.markdown-source-view .token.cdata {
+  color: #6a9955 !important; /* VSCode: コメント（緑） */
+}
+
+.markdown-preview-view .token.punctuation,
+.markdown-source-view .token.punctuation {
+  color: #d4d4d4 !important; /* VSCode: 句読点（白） */
+}
+
+.markdown-preview-view .token.property,
+.markdown-source-view .token.property {
+  color: #7dd3fc !important; /* プロパティ（ライトブルー） */
+}
+
+.markdown-preview-view .token.tag,
+.markdown-source-view .token.tag,
+.markdown-preview-view .token.boolean,
+.markdown-source-view .token.boolean,
+.markdown-preview-view .token.number,
+.markdown-source-view .token.number,
+.markdown-preview-view .token.constant,
+.markdown-source-view .token.constant,
+.markdown-preview-view .token.symbol,
+.markdown-source-view .token.symbol,
+.markdown-preview-view .token.deleted,
+.markdown-source-view .token.deleted {
+  color: #b5cea8 !important; /* 数値・定数（薄緑） */
+}
+
+.markdown-preview-view .token.selector,
+.markdown-source-view .token.selector,
+.markdown-preview-view .token.attr-name,
+.markdown-source-view .token.attr-name,
+.markdown-preview-view .token.string,
+.markdown-source-view .token.string,
+.markdown-preview-view .token.char,
+.markdown-source-view .token.char,
+.markdown-preview-view .token.builtin,
+.markdown-source-view .token.builtin {
+  color: #ffd700 !important; /* 組み込み関数（オレンジイエロー） */
+}
+
+.markdown-preview-view .token.inserted,
+.markdown-source-view .token.inserted {
+  color: #ce9178 !important; /* 文字列（オレンジ） */
+}
+
+.markdown-preview-view .token.operator,
+.markdown-source-view .token.operator,
+.markdown-preview-view .token.entity,
+.markdown-source-view .token.entity,
+.markdown-preview-view .token.url,
+.markdown-source-view .token.url {
+  color: #d4d4d4 !important; /* VSCode: 演算子（白） */
+}
+
+.markdown-preview-view .token.atrule,
+.markdown-source-view .token.atrule,
+.markdown-preview-view .token.attr-value,
+.markdown-source-view .token.attr-value,
+.markdown-preview-view .token.keyword,
+.markdown-source-view .token.keyword {
+  color: #56d678 !important; /* VSCode: キーワード（緑） */
+}
+
+.markdown-preview-view .token.function,
+.markdown-source-view .token.function {
+  color: #dcdcaa !important; /* 関数名（黄色） */
+}
+
+.markdown-preview-view .token.class-name,
+.markdown-source-view .token.class-name {
+  color: #4ec9b0 !important; /* クラス名（シアン） */
+}
+
+.markdown-preview-view .token.regex,
+.markdown-source-view .token.regex,
+.markdown-preview-view .token.important,
+.markdown-source-view .token.important {
+  color: #d16969 !important; /* 正規表現・重要（赤） */
+}
+
+.markdown-preview-view .token.variable,
+.markdown-source-view .token.variable {
+  color: #9cdcfe !important; /* 変数名（水色） */
+}
+

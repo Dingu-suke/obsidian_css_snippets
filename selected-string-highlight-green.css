@@ -1,0 +1,47 @@
+/* テキスト選択時の背景色を緑色に変更 */
+/* シンタックスハイライトの色を保持しつつ、40%を黒に近づける */
+::selection {
+  background-color: #25ff1547 !important; /* 緑色の背景 */
+  color: color-mix(in srgb, currentColor 80%, black 20%) !important; /* 元の色の60%と黒の40%を混ぜる */
+}
+
+/* CodeMirrorエディタ内の選択 */
+.cm-editor ::selection,
+.cm-content ::selection {
+  background-color: #25ff15a1 !important; /* 緑色の背景 */
+  color: color-mix(in srgb, currentColor 100%, black 0%) !important; /* 元の色の60%と黒の40%を混ぜる */
+}
+
+/* マークダウンビューでの選択 */
+.markdown-source-view ::selection,
+.markdown-preview-view ::selection {
+  background-color: #25ff1547 !important; /* 緑色の背景 */
+  color: color-mix(in srgb, currentColor 100%, black 0%) !important; /* 元の色の60%と黒の40%を混ぜる */
+}
+
+/* コードブロック内の選択部分 - 専用の色設定 */
+/* HyperMDコードブロック内の選択 */
+.HyperMD-codeblock ::selection,
+.HyperMD-codeblock-bg ::selection,
+.cm-line.HyperMD-codeblock ::selection,
+.cm-line.HyperMD-codeblock-bg ::selection,
+.cm-editor .HyperMD-codeblock ::selection,
+.cm-editor .HyperMD-codeblock-bg ::selection,
+.cm-editor .cm-line.HyperMD-codeblock ::selection,
+.cm-editor .cm-line.HyperMD-codeblock-bg ::selection,
+.markdown-source-view .HyperMD-codeblock ::selection,
+.markdown-source-view .HyperMD-codeblock-bg ::selection,
+.markdown-source-view .cm-line.HyperMD-codeblock ::selection,
+.markdown-source-view .cm-line.HyperMD-codeblock-bg ::selection {
+  background-color: #2d8c50c1 !important; /* コードブロック用の緑色の背景（通常の選択より濃いめ） */
+  color: color-mix(in srgb, currentColor 85%, white 15%) !important; /* シンタックスハイライトの色を保持しつつ暗くする */
+}
+
+/* プレビューモードのコードブロック内の選択 */
+.markdown-preview-view pre ::selection,
+.markdown-preview-view pre code ::selection,
+.markdown-source-view pre ::selection,
+.markdown-source-view pre code ::selection {
+  background-color: #4ef88c70 !important; /* コードブロック用の緑色の背景 */
+  color: color-mix(in srgb, currentColor 85%, white 15%) !important; /* シンタックスハイライトの色を保持しつつ暗くする */
+}
