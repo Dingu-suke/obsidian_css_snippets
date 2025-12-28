@@ -1,0 +1,135 @@
+/* filename: .obsidian/snippets/answer-callout.css */
+
+/* ========================================
+   問題用コールアウト（常に表示）
+   ======================================== */
+.callout[data-callout="question"] {
+  --callout-color: #4A90E2; /* 青色系（問題用） */
+  --callout-icon: "❓";      /* アイコン */
+  border: 2px solid var(--callout-color);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 14px 0;
+  background: var(--background-primary);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.15);
+  position: relative;
+}
+
+/* 問題タイトル行のスタイル */
+.callout[data-callout="question"] .callout-title {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--callout-color);
+}
+
+/* 問題コンテンツのスタイル */
+.callout[data-callout="question"] .callout-content {
+  margin-top: 8px;
+}
+
+/* 問題内の画像など */
+.callout[data-callout="question"] .callout-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* ========================================
+   回答用コールアウト（ホバーで表示）
+   ======================================== */
+/* 1) 回答用コールアウトの見た目（Notion風に） */
+.callout[data-callout="answer"] {
+  --callout-color: #F5A623; /* 黄色系（回答用） */
+  --callout-icon: "💡";      /* アイコン（任意） */
+  border: 2px solid var(--callout-color);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 14px 0;
+  background: var(--background-primary);
+  box-shadow: 0 2px 8px rgba(245, 166, 35, 0.15);
+  position: relative;
+}
+
+/* 回答タイトル行を少し強調 */
+.callout[data-callout="answer"] .callout-title {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--callout-color);
+}
+
+/* 2) 枠全体をぼかす（編集/閲覧で共通）。ホバーで解除 */
+.callout[data-callout="answer"] .callout-content {
+  /* ぼかしの強さは調整可能 */
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  /* 枠全体にホバーすれば解除されるよう、コンテンツ領域を枠の中に広げる */
+  transition: filter 120ms ease;
+}
+
+/* 枠全体にホバーで一括解除（正確な位置狙い不要） */
+.callout[data-callout="answer"]:hover .callout-content {
+  filter: none;
+  -webkit-filter: none;
+}
+
+/* 3) 画像・図・コードなども許可（既定でOK）。任意で微調整 */
+.callout[data-callout="answer"] .callout-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* 4) 印刷時はぼかしを外す（紙では切り替え不要） */
+@media print {
+  .callout[data-callout="answer"] .callout-content {
+    filter: none !important;
+    -webkit-filter: none !important;
+  }
+
+  /* 印刷時は背景を白寄りにするなども可能（任意）
+  .callout[data-callout="answer"] {
+    background: #fff !important;
+  }
+  */
+}
+
+/* 5) Live Preview でも過度なチラつきを防ぐ（任意の微調整） */
+.markdown-source-view.mod-cm6 .callout[data-callout="answer"] .callout-content {
+  transition: filter 120ms ease;
+}
+
+/* ========================================
+   問題と回答のペア表示の調整
+   ======================================== */
+/* 問題の直後に回答が来る場合の間隔調整 */
+.callout[data-callout="question"] + .callout[data-callout="answer"] {
+  margin-top: 8px;
+}
+
+/* 問題と回答を視覚的に関連付ける（オプション） */
+.callout[data-callout="question"]::after {
+  content: "↓";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.callout[data-callout="question"] + .callout[data-callout="answer"]::before {
+  content: "↑";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  font-size: 16px;
+  opacity: 0.5;
+}
+
