@@ -1,0 +1,22 @@
+/* ===========================================================
+   読みやすい行幅を保ったまま、本文を左寄せにする
+   （中央寄せ → 左寄せ。余ったスペースは右側にまわる）
+   =========================================================== */
+
+/* 読書ビュー（プレビュー） */
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+	margin-left: 0 !important;
+	margin-right: auto !important;
+}
+
+/* ライブプレビュー / ソースモード */
+.markdown-source-view.is-readable-line-width .cm-sizer {
+	margin-left: 0 !important;
+	margin-right: auto !important;
+}
+
+/* 一部テーマでは行幅の制約が .cm-content 側にあるため保険で指定 */
+.markdown-source-view.is-readable-line-width .cm-content {
+	margin-left: 0 !important;
+	margin-right: auto !important;
+}

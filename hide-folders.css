@@ -1,0 +1,19 @@
+/* ===========================================================
+   ファイルエクスプローラーで不要なフォルダを非表示にする
+
+   非表示にしたいフォルダの「data-path」を下のリストに足すだけ。
+   data-path = ヴォルト直下ならフォルダ名そのもの
+              （入れ子なら "親/子" のようなパス）
+   =========================================================== */
+
+.nav-folder:has(> .nav-folder-title[data-path="00_templates"]),
+.nav-folder:has(> .nav-folder-title[data-path="01_diary"]),
+.nav-folder:has(> .nav-folder-title[data-path="02_notes"]),
+.nav-folder:has(> .nav-folder-title[data-path="03_assets"]),
+.nav-folder:has(> .nav-folder-title[data-path="04_canvas"]),
+.nav-folder:has(> .nav-folder-title[data-path="05_dataview"]),
+.nav-folder:has(> .nav-folder-title[data-path="attachments"]) {
+	display: none;
+}
+
+/* --- 他に隠したいフォルダがあれば、上のリストに data-path を足してください --- */

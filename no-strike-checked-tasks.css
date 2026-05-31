@@ -1,0 +1,17 @@
+/* チェック済みタスクの取り消し線を消す（Reading View + Live Preview 両対応） */
+
+/* Reading View */
+.markdown-preview-view li.task-list-item[data-task="x"],
+.markdown-preview-view li.task-list-item[data-task="X"],
+.markdown-preview-view li.task-list-item[data-task="x"] * ,
+.markdown-preview-view li.task-list-item[data-task="X"] * {
+  text-decoration: none !important;
+}
+
+/* Live Preview (エディタ側) */
+.markdown-source-view .task-list-item[data-task="x"],
+.markdown-source-view .task-list-item[data-task="X"],
+.markdown-source-view .task-list-item[data-task="x"] * ,
+.markdown-source-view .task-list-item[data-task="X"] * {
+  text-decoration: none !important;
+}
