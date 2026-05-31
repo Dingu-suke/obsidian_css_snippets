@@ -422,3 +422,67 @@ html body pre code {
   color: #9cdcfe !important; /* 変数名（水色） */
 }
 
+
+/* ============================================================
+   行番号ガターの調整（codeblock-customizer 想定）
+   - ガター背景をコード本体 (#27274d) と揃える
+   - 行番号を白に
+   - カーソル行（アクティブ行）の番号を少し光らせる
+   ============================================================ */
+
+/* codeblock-customizer が使う CSS 変数を上書き（保険） */
+body {
+  --codeblock-customizer-gutter-background-color: #27274d;
+  --codeblock-customizer-gutter-text-color: #acb0c3;
+  --codeblock-customizer-gutter-active-linenr-color: #f6feff;
+}
+
+/* 行番号ガターの背景をコードと同じ #27274d に */
+.codeblock-customizer-line-number,
+.codeblock-customizer-line-number-specific {
+  background-color: #27274d !important;
+}
+
+/* 通常の行番号 = グレー。数字テキストは子要素 *-element が持つので、
+   プラグイン本体と同じ [class^=...] セレクタで確実に当てる */
+[class^="codeblock-customizer-line-number"] {
+  color: #acb0c3 !important;
+}
+
+/* カーソル行（アクティブ行）の番号だけ ほぼ白（青みごくわずか）。
+   プラグイン本体と同じセレクタに !important を足して確実に勝たせる。 */
+.codeblock-customizer-gutter-active-line
+  .cm-active
+  [class^="codeblock-customizer-line-number"] {
+  color: #f6feff !important;
+}
+
+/* ============================================================
+   対応する括弧 () {} [] のハイライト
+   codeblock-customizer のブラケットハイライト機能が担当。
+   背景が --color-base-30（明るい色）で暗背景に白く浮くため上書き。
+   文字色（ピンク #f33bff）はそのまま活かす。
+   ============================================================ */
+body {
+  --codeblock-customizer-codeblock-bracket-highlight-background-color-match: rgba(
+    255,
+    255,
+    255,
+    0.16
+  );
+  --codeblock-bracket-highlight-background-color-match: rgba(255, 255, 255, 0.16);
+  --codeblock-customizer-codeblock-bracket-highlight-color-match: #ff71af;
+  --codeblock-bracket-highlight-color-match: #ff71af;
+}
+
+.codeblock-customizer-bracket-highlight-match {
+  background-color: transparent !important; /* 背景なし（枠線のみ） */
+  color: #ff71af !important; /* ビビッドなローズピンク */
+  border: 1px solid rgba(197, 232, 239, 0.756) !important; /* 細いボーダー（さらに白方向へ） */
+  border-radius: 3px !important;
+}
+
+.codeblock-customizer-bracket-highlight-nomatch {
+  background-color: rgba(255, 90, 90, 0.22) !important; /* 不一致は赤み */
+  border-radius: 3px !important;
+}
