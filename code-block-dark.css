@@ -486,3 +486,138 @@ body {
   background-color: rgba(255, 90, 90, 0.22) !important; /* 不一致は赤み */
   border-radius: 3px !important;
 }
+
+/* ============================================================
+   閲覧モード(Prism)を編集モード(CodeMirror)の配色に揃える
+   ＝ CMの色を「正」として Prism の .token.* を再マッピング。
+   ※2エンジンはトークン分類が異なるため一部は完全一致しない。
+   ============================================================ */
+
+/* コメント = CM .cm-comment (#6a9955) */
+.markdown-preview-view .token.comment,
+.markdown-source-view .token.comment,
+.markdown-preview-view .token.prolog,
+.markdown-source-view .token.prolog,
+.markdown-preview-view .token.doctype,
+.markdown-source-view .token.doctype,
+.markdown-preview-view .token.cdata,
+.markdown-source-view .token.cdata {
+  color: #6a9955 !important;
+}
+
+/* キーワード = CM .cm-keyword (#30bede) */
+.markdown-preview-view .token.keyword,
+.markdown-source-view .token.keyword,
+.markdown-preview-view .token.atrule,
+.markdown-source-view .token.atrule,
+.markdown-preview-view .token.attr-value,
+.markdown-source-view .token.attr-value {
+  color: #30bede !important;
+}
+
+/* 文字列 = CM .cm-string (#ce9178) */
+.markdown-preview-view .token.string,
+.markdown-source-view .token.string,
+.markdown-preview-view .token.char,
+.markdown-source-view .token.char,
+.markdown-preview-view .token.inserted,
+.markdown-source-view .token.inserted,
+.markdown-preview-view .token.attr-name,
+.markdown-source-view .token.attr-name,
+.markdown-preview-view .token.selector,
+.markdown-source-view .token.selector {
+  color: #ce9178 !important;
+}
+
+/* 数値・定数 = CM .cm-number (#b5cea8) */
+.markdown-preview-view .token.number,
+.markdown-source-view .token.number,
+.markdown-preview-view .token.boolean,
+.markdown-source-view .token.boolean,
+.markdown-preview-view .token.constant,
+.markdown-source-view .token.constant,
+.markdown-preview-view .token.symbol,
+.markdown-source-view .token.symbol,
+.markdown-preview-view .token.tag,
+.markdown-source-view .token.tag,
+.markdown-preview-view .token.deleted,
+.markdown-source-view .token.deleted {
+  color: #b5cea8 !important;
+}
+
+/* 関数名 = CM .cm-def(関数定義) (#f5ba4c) */
+.markdown-preview-view .token.function,
+.markdown-source-view .token.function {
+  color: #f5ba4c !important;
+}
+
+/* 組み込み = CM .cm-builtin (#ffd900) */
+.markdown-preview-view .token.builtin,
+.markdown-source-view .token.builtin {
+  color: #ffd900 !important;
+}
+
+/* 型・クラス = CM .cm-class / .cm-type (#4ec9b0) */
+.markdown-preview-view .token.class-name,
+.markdown-source-view .token.class-name {
+  color: #4ec9b0 !important;
+}
+
+/* プロパティ = CM .cm-property (#d28eff) */
+.markdown-preview-view .token.property,
+.markdown-source-view .token.property {
+  color: #d28eff !important;
+}
+
+/* 変数 = CM .cm-variable (#9cdcfe) */
+.markdown-preview-view .token.variable,
+.markdown-source-view .token.variable {
+  color: #9cdcfe !important;
+}
+
+/* 演算子・記号 = CM .cm-operator / .cm-punctuation (#d4d4d4) */
+.markdown-preview-view .token.operator,
+.markdown-source-view .token.operator,
+.markdown-preview-view .token.punctuation,
+.markdown-source-view .token.punctuation,
+.markdown-preview-view .token.entity,
+.markdown-source-view .token.entity,
+.markdown-preview-view .token.url,
+.markdown-source-view .token.url {
+  color: #d4d4d4 !important;
+}
+
+/* 正規表現・重要 (#d16969) */
+.markdown-preview-view .token.regex,
+.markdown-source-view .token.regex,
+.markdown-preview-view .token.important,
+.markdown-source-view .token.important {
+  color: #d16969 !important;
+}
+
+/* ============================================================
+   B-2: 閲覧モード(Prism)を編集モードへさらに寄せる追加マッピング
+   （編集モードは変更しない。拾えるトークンだけ合わせる）
+   ============================================================ */
+
+/* 引数 = CM .cm-variable (#9cdcfe)  例: resolve, user, num */
+.markdown-preview-view .token.parameter,
+.markdown-source-view .token.parameter {
+  color: #9cdcfe !important;
+}
+
+/* 型・クラス名の各種 = CM .cm-class (#4ec9b0)  例: User, Promise */
+.markdown-preview-view .token.maybe-class-name,
+.markdown-source-view .token.maybe-class-name,
+.markdown-preview-view .token.known-class-name,
+.markdown-source-view .token.known-class-name {
+  color: #4ec9b0 !important;
+}
+
+/* テンプレートリテラル = CM .cm-string (#ce9178) */
+.markdown-preview-view .token.template-string,
+.markdown-source-view .token.template-string,
+.markdown-preview-view .token.template-string .token.string,
+.markdown-source-view .token.template-string .token.string {
+  color: #ce9178 !important;
+}
